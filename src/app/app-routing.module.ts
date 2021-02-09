@@ -33,15 +33,6 @@ const routes: Routes = [
     path: 'all-blogpost', 
     component: AllBlogpostsComponent 
   },
-  { 
-    path: '', 
-    redirectTo: '/home', 
-    pathMatch: 'full'
-  },
-  { 
-    path: '**', 
-    component: PageNotFoundComponent 
-  },
   {
     path: 'login',
     component: LoginComponent
@@ -59,6 +50,15 @@ const routes: Routes = [
   {
     path: 'nav',
     component: SidebarComponent
+  },
+  { 
+    path: '', 
+    redirectTo: '/home', 
+    pathMatch: 'full'
+  },
+  { 
+    path: '**', 
+    component: PageNotFoundComponent 
   },
   // {
   //   path : "*.*", 
