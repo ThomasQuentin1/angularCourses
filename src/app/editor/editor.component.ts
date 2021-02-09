@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { FormGroup, FormControl } from '@angular/forms';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-editor',
@@ -7,12 +9,19 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
   styleUrls: ['./editor.component.css']
 })
 export class EditorComponent {
+  constructor(private adminService: AdminService) {}
 
-
-
-  name = '';
   htmlContent = '';
 
+  articleForm: FormGroup = new FormGroup({
+    name: new FormControl(),
+    categories: new FormControl(),
+  });
+
+  submit() {
+      this.adminService.createArticle(this.articleForm.value.name, this.articleForm.value.categories.split(",").map((e:string) => e.trim()), this.htmlContent)
+  }
+  
   config: AngularEditorConfig = {
     editable: true,
     spellcheck: true,

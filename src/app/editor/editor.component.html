@@ -1,4 +1,41 @@
-<div class="container">
-      <angular-editor [(ngModel)]="htmlContent" [config]="config"></angular-editor>
+<app-sidebar>
+  <div class="container">
+    <form (ngSubmit)="submit()" [formGroup]="articleForm" id="articleForm">
+      <mat-form-field>
+        <mat-label>Nom</mat-label>
+        <input type="text" matInput formControlName="name"/>
+      </mat-form-field>
+      <br/>
+      <mat-form-field>
+        <mat-label>Catégories</mat-label>
+        <input type="text" matInput formControlName="categories" />
+      </mat-form-field>
+    </form>
+    <angular-editor
+    [(ngModel)]="htmlContent"
+    [config]="config"
+  ></angular-editor>
+    <!-- <div class="textInput">
+      <form (ngSubmit)="submit()" [formGroup]="articleForm">
+      <div>
+        <mat-form-field>
+          <mat-label>Nom</mat-label>
+          <input type="text" matInput />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Catégorie</mat-label>
+          <input type="text" matInput />
+        </mat-form-field>
+      </div>
 
+
+      </form>
+    </div> -->
+    <div class="submitButton">
+        <button  form="articleForm" mat-raised-button color="primary">Créer</button>
+
+    </div>
   </div>
+</app-sidebar>

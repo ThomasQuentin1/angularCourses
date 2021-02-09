@@ -20,7 +20,7 @@ const routes: Routes = [
   {
     path: 'editor',
     component: EditorComponent,
-    canActivate: [IsAdminLoggedGuard]
+    // canActivate: [IsAdminLoggedGuard]
   },
   {
     path: 'nav',
