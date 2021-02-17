@@ -18,8 +18,6 @@ import { AngularEditorModule } from "@kolkov/angular-editor";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CookieService } from "ngx-cookie-service";
 import { MatListModule } from "@angular/material/list";
-
-
 import {A11yModule} from '@angular/cdk/a11y';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import {DragDropModule} from '@angular/cdk/drag-drop';
@@ -57,9 +55,15 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { AboutUsComponent } from "./about-us/about-us.component";
+import { AllBlogpostsComponent } from "./all-blogposts/all-blogposts.component";
+import { ContactPageComponent } from "./contact-page/contact-page.component";
+import { LandingPageComponent } from "./landing-page/landing-page.component";
+import { LegalPageComponent } from "./legal-page/legal-page.component";
+import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, AdminComponent, EditorComponent, SidebarComponent],
+  declarations: [AppComponent, LoginComponent, AdminComponent, EditorComponent, SidebarComponent, AboutUsComponent, AllBlogpostsComponent, ContactPageComponent, LandingPageComponent, LegalPageComponent, PageNotFoundComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
