@@ -3,18 +3,18 @@
     <form (ngSubmit)="submit()" [formGroup]="articleForm" id="articleForm">
       <mat-form-field>
         <mat-label>Nom</mat-label>
-        <input type="text" matInput formControlName="name"/>
+        <input type="text" matInput formControlName="name" />
       </mat-form-field>
-      <br/>
+      <br />
       <mat-form-field>
         <mat-label>Catégories</mat-label>
         <input type="text" matInput formControlName="categories" />
       </mat-form-field>
     </form>
     <angular-editor
-    [(ngModel)]="htmlContent"
-    [config]="config"
-  ></angular-editor>
+      [(ngModel)]="htmlContent"
+      [config]="config"
+    ></angular-editor>
     <!-- <div class="textInput">
       <form (ngSubmit)="submit()" [formGroup]="articleForm">
       <div>
@@ -34,8 +34,15 @@
       </form>
     </div> -->
     <div class="submitButton">
-        <button  form="articleForm" mat-raised-button color="primary">Créer</button>
-
+      <div *ngIf="isEditing === false; else edit">
+        <button form="articleForm" mat-raised-button color="primary">
+          Créer
+        </button>
+      </div>
+      <ng-template #edit>
+        <button form="articleForm" mat-raised-button color="primary">
+          Modifier
+        </button>      </ng-template>
     </div>
   </div>
 </app-sidebar>
