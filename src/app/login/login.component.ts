@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from "@angular/forms";
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { ADMIN_USER, ADMIN_PASS } from '../is-admin-logged.guard';
+import { NotifierService } from 'angular-notifier';
 
 
 
@@ -12,7 +13,7 @@ import { ADMIN_USER, ADMIN_PASS } from '../is-admin-logged.guard';
   styleUrls: ["./login.component.css"],
 })
 export class LoginComponent implements OnInit {
-  constructor(private router: Router, private cookieService : CookieService) {}
+  constructor(private router: Router, private cookieService : CookieService, private notifierService : NotifierService) {}
   ngOnInit(): void {
     if (this.cookieService.get("session") === ADMIN_USER)
     this.router.navigate(["/admin"]);
@@ -29,6 +30,10 @@ export class LoginComponent implements OnInit {
        {
          this.cookieService.set("session", this.form.value.username);
          this.router.navigate(["/admin"]);
+         this.notifierService.notify("success", "You are logged in")
+       } else {
+        this.notifierService.notify("error", "Invalid username or password")
+
        }
     }
   }

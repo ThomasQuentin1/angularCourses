@@ -61,10 +61,12 @@ import { ContactPageComponent } from "./contact-page/contact-page.component";
 import { LandingPageComponent } from "./landing-page/landing-page.component";
 import { LegalPageComponent } from "./legal-page/legal-page.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { NotifierModule } from "angular-notifier";
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, AdminComponent, EditorComponent, SidebarComponent, AboutUsComponent, AllBlogpostsComponent, ContactPageComponent, LandingPageComponent, LegalPageComponent, PageNotFoundComponent],
   imports: [
+    NotifierModule,
     BrowserModule,
     AppRoutingModule,
     MatSliderModule,

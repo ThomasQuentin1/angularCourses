@@ -3,6 +3,7 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AdminService } from '../admin.service';
 import { Router } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-editor',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./editor.component.css']
 })
 export class EditorComponent implements OnInit {
-  constructor(private router: Router, private adminService: AdminService) {}
+  constructor(private router: Router, private adminService: AdminService, private notifierService: NotifierService) {}
 
   htmlContent = '';
   id = null;
@@ -21,11 +22,7 @@ export class EditorComponent implements OnInit {
   });
 
   ngOnInit() {
-      // this.route.params.subscribe(params => {
-      //    console.log(params);
-      // });
-    //  console.log( this.router)
-    
+   
      const id = this.router.url.split("=")[1];
      if (id ) {
       this.adminService.getArticle(id).subscribe(article => {
@@ -41,8 +38,10 @@ export class EditorComponent implements OnInit {
   submit() {
     if (this.isEditing === false) {
       this.adminService.createArticle(this.articleForm.value.name, this.articleForm.value.categories.split(",").map((e:string) => e.trim()), this.htmlContent)
+      this.notifierService.notify("success", "the article has been created");
     } else {
        this.adminService.updateArticle(this.id, this.articleForm.value.name, this.articleForm.value.categories.split(",").map((e:string) => e.trim()), this.htmlContent)
+      this.notifierService.notify("success", "the article has been updated");
     }
   }
   

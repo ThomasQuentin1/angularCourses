@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AdminService } from "../admin.service";
 import { Router } from '@angular/router';
+import { NotifierService } from 'angular-notifier';
 
 export const displayDateTime = (inputDate: string | Date) =>
   (inputDate instanceof Date
@@ -37,7 +38,7 @@ export class AdminComponent implements OnInit {
     "delete",
   ];
 
-  constructor(private router: Router, private adminService: AdminService) {}
+  constructor(private router: Router, private adminService: AdminService,  private notifierService: NotifierService) {}
   ngOnInit(): void {
     this.adminService.getArticles().subscribe((data) => {
       this.dataSource = Object.keys(data).reduce((acc, curr) => {
@@ -54,6 +55,8 @@ export class AdminComponent implements OnInit {
   }
 
   deleteArticle(event: any): void {
+    this.notifierService.notify("success", "the article has been deleted");
+
     this.adminService.deleteArticle(event.id);
     this.dataSource = this.dataSource.filter((e) => e.id != event.id);
   }
