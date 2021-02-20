@@ -1,1 +1,6 @@
-<p>landing-page works!</p>
+<app-sidebar>
+    <mat-card style="margin: 100px;" *ngFor="let post of this.post">
+        <mat-card-title>{{post.name}}</mat-card-title>
+            <mat-card-content>{{post.text}}</mat-card-content>
+    </mat-card>
+</app-sidebar>

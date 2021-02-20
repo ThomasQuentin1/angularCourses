@@ -1,1 +1,19 @@
-<p>contact-page works!</p>
+<app-sidebar>
+  <form class="contact">
+    <h1 class="title">Contact Us</h1>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput required>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput  placeholder="email@example.com" required>
+    <mat-error >Please enter a valid email</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Message</mat-label>
+    <textarea matInput maxlength="256" placeholder="I'm interested in..." required></textarea>
+  </mat-form-field>
+  <button  type="submit">Submit</button>
+</form>
+</app-sidebar>
