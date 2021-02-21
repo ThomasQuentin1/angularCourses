@@ -1,0 +1,7 @@
+<app-toolbar-menu>
+    <mat-card style="margin: 100px;">
+        <mat-card-title>{{this.post.name}}</mat-card-title>
+        <mat-card-subtitle>categories : {{this.post.categories}}</mat-card-subtitle>
+        <div [innerHTML]=this.post.text></div>
+    </mat-card>
+</app-toolbar-menu>

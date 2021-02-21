@@ -1,6 +1,15 @@
-<app-sidebar>
-    <mat-card style="margin: 100px;" *ngFor="let post of this.post">
+<app-toolbar-menu>
+    <mat-card style="color: aqua;">
+<mat-card style="height:100px; margin: 50px; background-color: green;">
+    <mat-card-header>
+        Bloggy is a blog where you can find tons of blog
+    </mat-card-header>
+</mat-card>
+    <mat-card style="margin: 100px; background-color:gray" *ngFor="let post of this.post">
         <mat-card-title>{{post.name}}</mat-card-title>
-            <mat-card-content>{{post.text}}</mat-card-content>
+        <mat-card-subtitle>categories : {{post.categories}}</mat-card-subtitle>
+        <div [innerHTML]=post.text></div>
+        <button mat-raised-button color="primary"[routerLink]="['/single-blog']" [state]="{name:post.name}">Show Blog</button>
     </mat-card>
-</app-sidebar>
+</mat-card>
+    </app-toolbar-menu>

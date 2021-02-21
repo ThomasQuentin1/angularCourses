@@ -62,9 +62,11 @@ import { LandingPageComponent } from "./landing-page/landing-page.component";
 import { LegalPageComponent } from "./legal-page/legal-page.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { NotifierModule } from "angular-notifier";
+import { ToolbarMenuComponent } from './toolbar-menu/toolbar-menu.component';
+import { SingleBlogComponent } from './single-blog/single-blog.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, AdminComponent, EditorComponent, SidebarComponent, AboutUsComponent, AllBlogpostsComponent, ContactPageComponent, LandingPageComponent, LegalPageComponent, PageNotFoundComponent],
+  declarations: [AppComponent, LoginComponent, AdminComponent, EditorComponent, SidebarComponent, AboutUsComponent, AllBlogpostsComponent, ContactPageComponent, LandingPageComponent, LegalPageComponent, PageNotFoundComponent, ToolbarMenuComponent, SingleBlogComponent],
   imports: [
     NotifierModule,
     BrowserModule,

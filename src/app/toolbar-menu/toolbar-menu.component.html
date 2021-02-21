@@ -1,0 +1,21 @@
+<div>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <h1>Bloggy</h1>
+      <span class="menu-spacer"></span>
+      <div>
+        <a mat-button [routerLink]="'/home'"> Home</a>
+        <a mat-button [routerLink]="'/contact'"> Contact us </a>
+        <a mat-button [routerLink]="'/legal'"> Legal Page </a>
+        <a mat-button [routerLink]="'/about-us'"> About us </a>
+        <a mat-button [routerLink]="'/editor'"> Editor </a>
+        <a mat-button [routerLink]="'/admin'"> Admin </a>
+        <a mat-button [routerLink]="'/login'"> Login </a>
+  
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <ng-content></ng-content>
+</div>
+  
+  
