@@ -19,6 +19,7 @@ export class EditorComponent implements OnInit {
   articleForm: FormGroup = new FormGroup({
     name: new FormControl(),
     categories: new FormControl(),
+    author: new FormControl()
   });
 
   ngOnInit() {
@@ -28,7 +29,7 @@ export class EditorComponent implements OnInit {
       this.adminService.getArticle(id).subscribe(article => {
         console.log(article)
         this.htmlContent = article.text;
-        this.articleForm.setValue({name: article.name, categories: article.categories.join(", ")});
+        this.articleForm.setValue({name: article.name, categories: article.categories.join(", "), author: article.author});
         this.isEditing = true;
         this.id= id;
       });
@@ -37,10 +38,10 @@ export class EditorComponent implements OnInit {
 
   submit() {
     if (this.isEditing === false) {
-      this.adminService.createArticle(this.articleForm.value.name, this.articleForm.value.categories.split(",").map((e:string) => e.trim()), this.htmlContent)
+      this.adminService.createArticle(this.articleForm.value.name, this.articleForm.value.categories.split(",").map((e:string) => e.trim()), this.htmlContent, this.articleForm.value.author)
       this.notifierService.notify("success", "the article has been created");
     } else {
-       this.adminService.updateArticle(this.id, this.articleForm.value.name, this.articleForm.value.categories.split(",").map((e:string) => e.trim()), this.htmlContent)
+       this.adminService.updateArticle(this.id, this.articleForm.value.name, this.articleForm.value.categories.split(",").map((e:string) => e.trim()), this.htmlContent, this.articleForm.value.author)
       this.notifierService.notify("success", "the article has been updated");
     }
   }

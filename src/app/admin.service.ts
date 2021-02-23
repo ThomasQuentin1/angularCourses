@@ -11,14 +11,14 @@ export class AdminService {
 
   constructor(private http: HttpClient) { }
 
-  public createArticle(name: string, categories: string[], text: string)
+  public createArticle(name: string, categories: string[], text: string, author : string)
   {
-    return this.http.post(`${dbUrl}/article.json`, {name, categories, text, creationDate: new Date(), lastEditDate: new Date()}).subscribe();
+    return this.http.post(`${dbUrl}/article.json`, {name, categories, text, creationDate: new Date(), lastEditDate: new Date(), author},).subscribe();
   }
 
-  public updateArticle(id : string , name: string, categories: string[], text: string)
+  public updateArticle(id : string , name: string, categories: string[], text: string, author: string)
   {
-    return this.http.patch(`${dbUrl}/article/${id}.json`, {name, categories, text, lastEditDate: new Date()}).subscribe();
+    return this.http.patch(`${dbUrl}/article/${id}.json`, {name, categories, text, lastEditDate: new Date(), author}).subscribe();
   }
 
   public deleteArticle(id: string)

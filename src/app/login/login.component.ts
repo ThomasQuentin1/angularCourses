@@ -5,8 +5,6 @@ import { CookieService } from 'ngx-cookie-service';
 import { ADMIN_USER, ADMIN_PASS } from '../is-admin-logged.guard';
 import { NotifierService } from 'angular-notifier';
 
-
-
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
