@@ -1,1 +1,10 @@
-<p>all-blogposts works!</p>
+<app-toolbar-menu>
+    <mat-card>
+<mat-card class="card" *ngFor="let post of this.post">
+    <mat-card-title>{{post.name}}</mat-card-title>
+    <mat-card-subtitle>categories : {{post.categories}}</mat-card-subtitle>
+    <div [innerHTML]=post.text></div>
+    <button mat-raised-button color="primary" [routerLink]="['/single-blog']" [state]="{name:post.name}">Show Blog</button>
+</mat-card>
+</mat-card>
+</app-toolbar-menu>

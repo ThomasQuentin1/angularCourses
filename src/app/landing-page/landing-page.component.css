@@ -1,0 +1,10 @@
+.describe-card {
+    height:50px; 
+    margin: 50px; 
+    background-color: green;
+}
+
+.card {
+    margin: 100px; 
+    background-color:gray
+}

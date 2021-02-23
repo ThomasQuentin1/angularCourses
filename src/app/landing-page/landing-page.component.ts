@@ -14,7 +14,8 @@ export class LandingPageComponent implements OnInit {
     this.http.get<any>('https://angularcourses-8527a-default-rtdb.europe-west1.firebasedatabase.app/article.json').subscribe(data => {
             let test = data;
             let keys = Object.keys(test)
-            this.post =  keys.map(k => test[k])
+            this.post = keys.map(k => test[k])
+            this.post.splice(4.10)
         })
   }
 

@@ -1,11 +1,11 @@
 <app-toolbar-menu>
-    <mat-card style="color: aqua;">
-<mat-card style="height:100px; margin: 50px; background-color: green;">
+    <mat-card>
+<mat-card class="describe-card">
     <mat-card-header>
-        Bloggy is a blog where you can find tons of blog
+        Bloggy is a blog where you can find tons of blog. You can speak about anything you want. On bloggy, you are free to speak. Just respect each other , don't be racist or mean. Under this presentation, you can find the latest blog but you still can find all the blog on the all blog post page !
     </mat-card-header>
 </mat-card>
-    <mat-card style="margin: 100px; background-color:gray" *ngFor="let post of this.post">
+    <mat-card class="card" *ngFor="let post of this.post">
         <mat-card-title>{{post.name}}</mat-card-title>
         <mat-card-subtitle>categories : {{post.categories}}</mat-card-subtitle>
         <div [innerHTML]=post.text></div>
